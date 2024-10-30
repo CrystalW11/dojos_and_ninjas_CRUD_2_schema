@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quartz.css')}}" />
+    <title>New Ninja</title>
+</head>
+
+<body>
+    <div class="card-body center">
+        <h5 class="card-title text-center">Create A Ninja!</h5>
+        <form action="/create_ninja" method="post" class="form-control">
+            <select class="form-select" aria-label="Select Dojo" name="dojo_id">
+                {% for dojo in all_dojos %}
+                <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                {% endfor %}
+            </select>
+            <label for="first_name" class="form-label mt-3">First Name</label>
+            <input type="text" class="form-control" name="first_name" />
+            <label for="last_name" class="form-label mt-3">Last Name</label>
+            <input type="text" class="form-control" name="last_name" />
+            <label for="age" class="form-label mt-3">Age</label>
+            <input type="text" class="form-control" name="age" />
+
+            <div class="container d-flex justify-content-center">
+                <input type="submit" class="btn btn-primary mt-5" value="Create Ninja" />
+            </div>
+        </form>
+    </div>
+    <div class="container d-flex justify-content-center mt-3">
+        <form action="/">
+            <input type="submit" class="btn btn-primary" value="Home" />
+        </form>
+    </div>
+</body>
+
+</html>
